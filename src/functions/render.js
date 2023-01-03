@@ -31,7 +31,7 @@ export const renderProductCart = async (data, cardProduct) => {
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1246235229" || imgs.id === "MLA1293641566" ? divItem.classList.add("active") : console.log("hello")
+        imgs.id === "MLA1144239885" || imgs.id === "MLA1153864622" || imgs.id === "MLA1137697039" ? divItem.classList.add("active") : console.log("hello")
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");

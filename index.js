@@ -1,7 +1,10 @@
 import { init } from "./src/main.js"
 
-const urlElectronics ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1648"
-const urlVideoGames ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1144"
+const urlElectronics ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1648";
+const urlVideoGames ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1144";
+const urlCell ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1051"
+
+
 
 const options = {
     headers:{
@@ -9,19 +12,21 @@ const options = {
     }
 }
 
-const responseElectronics = await fetch(urlElectronics, options)
+const getData = async (url, options) => {
+    const response = await fetch(url, options)
                .then(res => res.json())
                .then(data => data)
+    return response
+}
 
-const responseVideoGames  = await fetch(urlVideoGames, options)
-.then(res => res.json())
-.then(data => data)
+const responseElectronics = await getData(urlElectronics, options);
+const responseCell = await getData(urlCell, options);
+const responseVideoGames  = await getData(urlVideoGames, options);
 
-init(responseElectronics, responseVideoGames)
+init(responseElectronics, responseVideoGames, responseCell)
 
 $(document).ready(function(){
 
-    $('#itemslider').carousel({ interval: 3000 });
     
     $('.carousel-showmanymoveone .item').each(function(){
     var itemToClone = $(this); 
