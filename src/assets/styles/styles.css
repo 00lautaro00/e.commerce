@@ -60,11 +60,12 @@ body{
 
 .product{
     text-decoration: none;
-}
-.w-product:hover{
-    z-index: 1;
-    box-shadow: 1px 1px 10px #e3f2fd;
     border: 5px solid #e3f2fd;
+
+}
+.product:hover{
+    z-index: 1;
+    box-shadow: 1px 1px 10px black;
 }
 .prices{
     color: black;
@@ -91,7 +92,6 @@ body{
   
   .carousel-showmanymoveone .carousel-control {
     width: 4%;
-    background-image: none;
   }
   .carousel-showmanymoveone .carousel-control.left {
     margin-left: 5px;
