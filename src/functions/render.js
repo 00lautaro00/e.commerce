@@ -32,7 +32,7 @@ export const renderProductCart = async (data, cardProduct) => {
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1144239885" || imgs.id === "MLA1297804431" || imgs.id === "MLA1137697039" ? divItem.classList.add("active") : console.log("hello")
+        imgs.id === "MLA1218639387" || imgs.id === "MLA1297804431" || imgs.id === "MLA1137697039" ? divItem.classList.add("active") : console.log("hello")
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -41,10 +41,17 @@ export const renderProductCart = async (data, cardProduct) => {
        divItem.append(a)
        a.append(divCol)
         divCol.innerHTML = `
-        <img src="${imgs.thumbnail}" alt="...">
+        
+         
+         <div>
+         <img src="${imgs.thumbnail}" alt="...">
          <div class="card-body">
          <p class="card-text"> ${imgs.title.slice(0,15)}</p>
          <span class="prices">$${imgs.price}</span>
+         </div>
+         <div>
+         <i class="fa-solid fa-cart-circle-plus"></i>
+         </div>
          </div>
         `
     });

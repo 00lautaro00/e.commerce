@@ -60,7 +60,7 @@ body{
 
 .product{
     text-decoration: none;
-    border: 5px solid #e3f2fd;
+    border: 3px solid #e3f2fd;
 
 }
 .product:hover{
@@ -80,12 +80,12 @@ body{
   margin: 4rem 6rem;
   border: 1px solid #e3f2fd;
   padding: 1rem 0;
-  border-radius: .4rem;
+  border-radius: .8rem;
 
 }
 .card-slider{
   background-color: white;
-  border-radius: .4rem;
+  border-radius: 1rem;
   border: 1px solid #e3f2fd;
 }
 
@@ -94,10 +94,18 @@ body{
     width: 4%;
   }
   .carousel-showmanymoveone .carousel-control.left {
-    margin-left: 5px;
+    margin-left: -1.5%;
+    display: flex;
+    align-items: center;
+    background-color: #e3f2fd;
+
   }
   .carousel-showmanymoveone .carousel-control.right {
-    margin-right: 5px;
+    margin-right: -1.5%;
+    display: flex;
+    align-items: center;
+    background-color: #e3f2fd;
+
   }
   .carousel-showmanymoveone .cloneditem-1,
   .carousel-showmanymoveone .cloneditem-2,
@@ -188,4 +196,3 @@ body{
       left: 0;
     }
   }
-  
