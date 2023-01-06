@@ -1,7 +1,14 @@
 
 const carrouselImage = document.getElementById("carrousel");
-const cardProduct = document.getElementById("productId")
-const cardProductVideoGames = document.getElementById("videoGames")
-const cardProductCell = document.getElementById("cell")
+const cardProduct = document.getElementById("productId");
+const cardProductVideoGames = document.getElementById("videoGames");
+const cardProductCell = document.getElementById("cell");
+const addCart = document.querySelectorAll("");
 
-export {carrouselImage, cardProduct, cardProductVideoGames, cardProductCell}
+export {
+    carrouselImage, 
+    cardProduct,
+    cardProductVideoGames, 
+    cardProductCell,
+    addCart
+}

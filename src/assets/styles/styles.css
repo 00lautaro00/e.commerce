@@ -57,7 +57,31 @@ body{
 }
 
 /* CARD PRODUCT */
-
+.card-product-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+@media (min-width:1500px) {
+  .card-product-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.icon-size{
+  font-size: 2.8rem;
+}
+.cart-add{
+  background-color: transparent;
+  border: none;
+}
+.cart-add:hover{
+  transform: scale(1.5,1.5);
+  box-shadow: 1px 1px 2px #e3f2fd;
+}
 .product{
     text-decoration: none;
     border: 3px solid #e3f2fd;
