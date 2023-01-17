@@ -21,7 +21,14 @@ export const renderCarrousel = async (data, carrouselImage) => {
     //     `
     // });
 }
-
+export const renderCartState = async () => {
+    const cartRenderCount = document.getElementById("cart");
+    const countCart = localStorage.getItem("cart");
+    cartRenderCount.innerHTML = 
+                                `
+                                <span class="cart-state">${countCart}</span>
+                                `
+}
 
 export const renderProductCart = async (data, cardProduct) => {
 
@@ -32,7 +39,7 @@ export const renderProductCart = async (data, cardProduct) => {
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1135443731" || imgs.id === "MLA1297804431" || imgs.id === "MLA1283526434" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1288642482" || imgs.id === "MLA930190781" || imgs.id === "MLA1142512620" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -41,9 +48,7 @@ export const renderProductCart = async (data, cardProduct) => {
        divItem.append(a)
        a.append(divCol)
         divCol.innerHTML = `
-        
-         
-         <div class="card-product-container">
+         <div class="card-product-container ">
          <img src="${imgs.thumbnail}" alt="...">
          <div class="card-body">
          <p class="card-text"> ${imgs.title.slice(0,15)}</p>
@@ -52,7 +57,7 @@ export const renderProductCart = async (data, cardProduct) => {
          <div>
          <i class="fa-solid fa-cart-circle-plus"></i>
          </div>
-           <button class="cart-add"> <i class="fa-sharp fa-solid fa-cart-plus icon-size"></i> </button>
+           <button class="cart-add" id="cart-button"> <i class="fa-sharp fa-solid fa-cart-plus icon-size"></i> </button>
          </div>
         `
     });

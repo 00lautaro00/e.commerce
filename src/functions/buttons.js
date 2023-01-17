@@ -1,8 +1,16 @@
+import { init } from "../main.js";
 
 
-export const cartState = async (addCart, cartCount) => {
-    console.log(addCart)
+export const cartState = async () => {
+    const addCart = document.querySelectorAll(".item");
+    // console.log(addCart)
+    let cartStateCount = localStorage.getItem("cart")
     addCart.forEach(btn => {
-        console.log(btn)
+        btn.addEventListener("click", (e) => {
+            console.log(btn)
+            cartStateCount = parseInt(cartStateCount) + 1
+            localStorage.setItem("cart", cartStateCount);
+            init()
+        })
     });
 }

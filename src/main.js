@@ -1,17 +1,21 @@
 import { cartState } from "./functions/buttons.js";
-import { renderCarrousel, renderProductCart} from "./functions/render.js"
-import {  carrouselImage , cardProductVideoGames, cardProductCell, addCart} from "./utils/dom.js"
+import { renderCarrousel, renderCartState, renderProductCart} from "./functions/render.js"
+import {  carrouselImage , cardProductVideoGames, cardProductCell} from "./utils/dom.js"
 
 
-const cartCount = 0
-localStorage.setItem("count", cartCount);
+const count = localStorage.getItem("cart");
+// if(count === 0)  localStorage.setItem("cart", 0) 
+localStorage.setItem("cart", 0) 
+
+
 
 export const init = async (dataElectronics, dataVidoGames, dataCell) => {
     const carrouselInit = await renderCarrousel(dataElectronics, carrouselImage);
     const cardProductInit = await renderProductCart(dataElectronics, carrouselImage);
     const cardProductVideoGamesInit = await renderProductCart(dataVidoGames, cardProductVideoGames);
     const cardProductCellInit = await renderProductCart(dataCell,cardProductCell);
-    const cartStateInit = await cartState(addCart, cartCount);
+    const cartStateInit = await cartState();
+    const renderCart = await renderCartState()
 
 }
 

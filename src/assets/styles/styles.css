@@ -21,16 +21,19 @@ body{
 .cart {
     position: absolute;
     content: '';
-    bottom: 15px;
+    bottom: 5px;
     right: 30px;
     border-radius: 50%;
-    background-color: #f5f5f5;
+    background: #e3f2fd;
+  background: -webkit-linear-gradient(0deg, #e3f2fd 0%, #0093fb 100%);
+  background: linear-gradient(0deg, #e3f2fd 0%, #0093fb 100%);
     width: 35px;
     height: 35px;
     display: flex;
     justify-content: center;
     padding: 4px;
-    box-shadow: 1px 1px 2px black;
+    box-shadow: -1px -1px 2px black;
+    font-size: 2rem;
 
 }
 .card-user{
@@ -41,11 +44,31 @@ body{
     height: 160px;
     border-radius: 50%;
     border: 2px solid #e3f2fd;
-    box-shadow: 5px 5px 7px black;
+    box-shadow: 5px 5px 7px black inset;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
+}
+.cart-state{
+  position: absolute;
+  content: '';
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 18px;
+  height: 20px;
+  bottom: -8px;
+  right: -3px;
+  color: rgb(41, 40, 40);
+  font-weight: 700;
+  z-index: 2;
+  background: #e3f2fd;
+  background: -webkit-linear-gradient(0deg, #e3f2fd 0%, #0093fb 100%);
+  background: linear-gradient(0deg, #e3f2fd 0%, #0093fb 100%);
+  border-radius: 40%;
+  box-shadow: -1px -1px -1px black inset;
+  font-size: 1.5rem;
 }
 /** carousel **/
 .card-carousel-banner {
@@ -78,19 +101,24 @@ body{
   background-color: transparent;
   border: none;
 }
-.cart-add:hover{
-  transform: scale(1.5,1.5);
-  box-shadow: 1px 1px 2px #e3f2fd;
+.product:hover{
+  /* transform: scale(1.5,1.5);
+  transition: .5s;
+  box-shadow: 1px 1px 2px #e3f2fd; */
+  transform: scale(1.02,1.02);
+  position: relative;
+  content: '';
+  background-color: #e3f2fdad;
+  z-index: 1;
+  box-shadow: 1px 1px 10px black;
 }
+.cart-add:active{}
 .product{
     text-decoration: none;
     border: 3px solid #e3f2fd;
+}
 
-}
-.product:hover{
-    z-index: 1;
-    box-shadow: 1px 1px 10px black;
-}
+
 .prices{
     color: black;
     font-weight: 700;
@@ -112,7 +140,9 @@ body{
   border-radius: 1rem;
   border: 1px solid #e3f2fd;
 }
-
+.carousel-inner{
+  padding: .4rem 0;
+}
   
   .carousel-showmanymoveone .carousel-control {
     width: 4%;
