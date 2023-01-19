@@ -35,11 +35,12 @@ export const renderProductCart = async (data, cardProduct) => {
     const images = await data ?  data.results.slice(0,20) : [];
     console.log(data)
      images.map(imgs => {
+        const detail = imgs.title + imgs.price
         const a = document.createElement("a")
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1288642482" || imgs.id === "MLA930190781" || imgs.id === "MLA1142512620" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1236113102" || imgs.id === "MLA1297804431" || imgs.id === "MLA1138238611" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -48,8 +49,8 @@ export const renderProductCart = async (data, cardProduct) => {
        divItem.append(a)
        a.append(divCol)
         divCol.innerHTML = `
-         <div class="card-product-container ">
-         <img src="${imgs.thumbnail}" alt="...">
+         <div class="card-product-container" >
+         <img src="${imgs.thumbnail}" alt=${imgs.id} >
          <div class="card-body">
          <p class="card-text"> ${imgs.title.slice(0,15)}</p>
          <span class="prices">$${imgs.price}</span>

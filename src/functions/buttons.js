@@ -8,9 +8,11 @@ export const cartState = async () => {
     addCart.forEach(btn => {
         btn.addEventListener("click", (e) => {
             console.log(btn)
-            cartStateCount = parseInt(cartStateCount) + 1
-            localStorage.setItem("cart", cartStateCount);
-            init()
+            console.log(e.target.alt)
+            // cartStateCount = parseInt(cartStateCount) + 1
+            // localStorage.setItem("cart", cartStateCount);
+            // init()
         })
     });
+    
 }
