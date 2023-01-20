@@ -81,19 +81,34 @@
       </nav>
 
        <!-- CARRUSEL  -->
-      <section class="card-carousel-banner">
+      <!-- <section class="card-carousel-banner">
         <div id="carouselExampleRide" class="carousel" data-bs-ride="carousel">
           <div class="carousel-inner" >
             <div class="carousel-item active ">
               <img src="https://http2.mlstatic.com/D_NQ_724506-MLA53005126329_122022-OO.webp" class="d-block w-100"  alt="...">
             </div>
-            <!-- <div class="carousel-item active">
+            <div class="carousel-item active">
               <img src="./src/assets/banner/—Pngtree—cyber monday super sale banner_1222812.jpg" class="d-block w-100"  alt="...">
-            </div> -->
+            </div>
           </div>
         </div>
-       </section>
+       </section> -->
+ <!-- Button trigger modal -->
+ <div class="hidden" id="modal-confirm">
+  <div class="modal-background"></div> 
+<div class="modal-confirm">
+  <div class="card">
+      <div class="card-header">
+          <h3>¿Desea agregar el producto al carrito?</h3>
+      </div>
+      <div class="card-body">
+          <button class="btn btn-primary" id="confirm">Confirmar</button>
+          <button class="btn btn-primary" id="cancel">Cancelar</button>
+      </div>
+  </div>
+</div>
 
+</div>
        <main>
         <section class="container-slider">
           <div class="container">
@@ -191,10 +206,56 @@
           
            </section>
         
-       </main>
-      <!-- solid style -->
-     
 
+       </main>
+      <section>
+        <main>
+          <div class="wrapper">
+            <!-- filter Items -->
+            <nav>
+              <div class="items">
+                <span class="itemGallery active" data-name="all">All</span>
+                <span class="itemGallery" data-name="VIDEOGAMES">VIDEOGAMES</span>
+                <span class="itemGallery" data-name="PC">PC</span>
+                <span class="itemGallery" data-name="CELL">SmartPhones</span>
+              </div>
+            </nav>
+            <!-- filter Images -->
+            <div class="gallery" id="gallery">
+              <!-- <div class="image-gallery" data-name="yogurt"><span><img src="./assets/food/yogurt.avif" alt=""></span></div> 
+              <div class="image-gallery" data-name="smootie" id="smootieDark"><span><img src="./assets/food/smootie.avif" alt="smootieDark"></span></div>
+              <div class="image-gallery" data-name="fruits"><span><img src="./assets/food/mix-vegan.avif" alt=""></span></div>
+              <div class="image-gallery" data-name="pizza" id="pizzaRainbow"><span><img src="./assets/food/greenfood.avif" alt="pizzaRainbow"></span></div>
+              <div class="image-gallery" data-name="burger" id="burgerHappy"><span><img src="./assets/food/burge.avif" alt="burgerHappy"></span></div>
+              <div class="image-gallery" data-name="yogurts"><span><img src="./assets/food/yogurt.avif" alt=""></span></div>
+              <div class="image-gallery" data-name="yogurts"><span><img src="./assets/food/yogurt.avif" alt=""></span></div>
+              <div class="image-gallery" data-name="pizza"><span><img src="./assets/food/pizza.avif" alt=""></span></div> -->
+            </div>
+          </div>
+          <!-- fullscreen img preview box -->
+          <!-- <div class="preview-box">
+            <div class="details">
+              <span class="title-gallery">
+                  <div><h2>Ingredients</h2></div>
+                  <div class="ingredients"><p></p></div>
+                  <span class="icon-ingredients">
+                      <i class="">
+                          <div class="icons-container icons-equis">
+                              <div class="line-1 equis-1"></div>
+                              <div class="line-2 equis-2"></div>
+                          </div>
+                      </i>
+                    </span>
+              </span>
+            <div class="image-box"><img src="" alt=""></div>
+          </div> -->
+      </div>
+          <!-- <div class="shadow"></div> -->
+        
+  </main>
+      </section>
+     
+<script src="./src/utils/filter.js"></script>
 </body>
 </html>
 
