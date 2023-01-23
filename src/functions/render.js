@@ -32,15 +32,16 @@ export const renderCartState = async () => {
 
 export const renderProductCart = async (data, cardProduct) => {
 
+
     const images = await data ?  data.results.slice(0,10) : [];
-    console.log(data)
+    // console.log(data)
      images.map(imgs => {
         const detail = imgs.title + imgs.price
         const a = document.createElement("a")
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1236113102" || imgs.id === "MLA1297804431" || imgs.id === "MLA1311305496" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1151012144" || imgs.id === "MLA1297804431" || imgs.id === "MLA1181177638" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -50,22 +51,18 @@ export const renderProductCart = async (data, cardProduct) => {
        a.append(divCol)
         divCol.innerHTML = `
          <div class="card-product-container" >
-         <img class="image" src="${imgs.thumbnail}" alt=${imgs.id} >
-         <div class="card-body">
-         <p class="card-text"> ${imgs.title.slice(0,15)}</p>
-         <span class="prices">$${imgs.price}</span>
-         </div>
+         <img class="" id="imageProduct" src="${imgs.thumbnail}" alt=${imgs.id} >
          </div>
         `
     });
 } 
 
-export const renderGallery = async (cardGallery, dataElectronics, dataCell, dataVidoGames) => {
+export const renderGallery = async (cardGallery, dataElectronics,  dataVideoGames, dataCell) => {
     
     
     const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
     const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
-    const imagesVideoGames = await dataVidoGames ?  dataVidoGames?.results.slice(0,20) : [];
+    const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
 
     const electronics = imagesElectronics.map(data => {
         let elec = [];
@@ -86,18 +83,31 @@ export const renderGallery = async (cardGallery, dataElectronics, dataCell, data
 
     const allProduct = [...cell, ...electronics, ...videoGames];
     allProduct.map(imgs => {
-        console.log(imgs[1].filterCategory)
         const div = document.createElement("div");
         cardGallery.append(div)
         div.innerHTML = 
         `
-        <div class="image-gallery" data-name="smootie" id=${imgs[1].filterCategory}><span><img src=${imgs[0].thumbnail} alt="smootieDark"></span></div>
+        <div class="image-gallery " data-name=${imgs[1].filterCategory} >
+            <span>
+               <img src=${imgs[0].thumbnail} alt=${imgs[0].title}>
+            </span>
+          <div class="">
+            <p class="card-text"> ${imgs[0].title.slice(0,15)}</p>
+            <span class="prices">$${imgs[0].price}</span>
+            <button class="cart-add" id="cart-button"> <i class="fa-sharp fa-solid fa-cart-plus icon-size"></i> </button> 
+           </div>
+        </div>
         `
     });
 
 }
 
 {/* <div>
+<div class="card-body">
+         <p class="card-text"> ${imgs.title.slice(0,15)}</p>
+         <span class="prices">$${imgs.price}</span>
+         </div>
          <i class="fa-solid fa-cart-circle-plus"></i>
          </div>
-           <button class="cart-add" id="cart-button"> <i class="fa-sharp fa-solid fa-cart-plus icon-size"></i> </button> */}
+           <button class="cart-add" id="cart-button"> <i class="fa-sharp fa-solid fa-cart-plus icon-size"></i> </button> */
+        }

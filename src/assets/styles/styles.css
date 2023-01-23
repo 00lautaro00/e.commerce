@@ -11,6 +11,13 @@ main{
     padding: 0 10rem;
   }
 }
+/*BACKGROUND */
+.bg-white{
+  background-color: white;
+  padding: 4rem 0;
+  border-radius: .5rem;
+  box-shadow: 1px 1px 10px #e3f2fd;
+}
 /** CAT **/
 .logo-user img{
     width: 100px;
@@ -273,7 +280,7 @@ main{
 
   /* MODAL */
   .modal-confirm{
-    position: absolute;
+    position: fixed;
     top: 40%;
     right: 20%;
     left: 20%;
@@ -308,7 +315,9 @@ main{
 
   /*GALLERY*/
 
-  
+  .show-card{
+    display: flex !important;
+  }
 .wrapper{
   margin: 100px auto;
   max-width: 1100px;
@@ -341,12 +350,22 @@ main{
 
 .gallery{
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 3rem;
+  padding: 0 2.5rem;
+
 }
-.gallery .image-gallery{
-  width: calc(100% / 4);
-  padding: 7px;
+.image-gallery{
+  display: flex;
+  flex-direction: row;
+  max-width: 200px;
+  max-height: 220px;
+  margin: .8rem;
+  padding:2rem 1rem;
+  border: 1px solid #e3f2fd;
+  box-shadow:2px 2px 8px #0093fb;
 }
 .gallery .image-gallery span{
   display: flex;
@@ -364,7 +383,7 @@ main{
 .gallery .image-gallery.hide{
   display: none;
 }
-.gallery .image-gallery.show{
+.gallery .image-gallery.show-card{
   animation: animate 0.4s ease;
 }
 @keyframes animate {
@@ -423,9 +442,6 @@ main{
   line-height: 2.5rem ;
   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
 }
-.ingredients{
-  margin-top: 2rem;
-}
 .details{
   width: 100%;
   display: flex;
@@ -459,14 +475,11 @@ main{
   display: block;
 }
 @media (min-width:700px) {
-  .details{
-      flex-direction: row;
-  }
-  
+
 }
 @media (max-width: 1000px) {
   .gallery .image-gallery{
-    width: calc(100% / 3);
+    width: calc(100% / 1);
   }
 }
 @media (max-width: 800px) {
@@ -497,4 +510,7 @@ main{
   .gallery .image-gallery{
     width: 100%;
   }
+}
+.image{
+  transform: scale(2,2);
 }
