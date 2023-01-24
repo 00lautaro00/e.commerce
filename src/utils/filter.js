@@ -29,25 +29,4 @@ window.onload = async ()=>{ //after window loaded
 
 //fullscreen image preview function
 //selecting all required elements
-const previewBox = document.querySelector(".preview-box"),
-shadow = document.querySelector(".shadow");
 
-function preview (element) {
-    //once user click on any image then remove the scroll bar of the body, so user cant scroll up or down
-    document.querySelector("body").style.overflow = "hidden";
-    let selectedPrevImg = element.src; //getting user clicked image source link and stored in a variable
-    const setIngredientList = Ingredients.map((ingr) => element.alt === ingr.name ? ingr.description : console.log('nothing') );
-    const ingredientList = setIngredientList.filter(ingr => ingr !== undefined);
-    let selectedImgCategory = ingredientList //getting user clicked image data-name value
-    previewImg.src = selectedPrevImg; //passing the user clicked image source in preview image source
-    categoryName.innerHTML = selectedImgCategory; //passing user clicked data-name value in category name
-    previewBox.classList.add("show"); //show the preview image box
-    shadow.classList.add("show"); //show the light grey background
-    closeIcon.addEventListener("click", ()=>{ //if user click on close icon of preview box
-      previewBox.classList.remove("show"); //hide the preview box
-      shadow.classList.remove("show"); //hide the light grey background
-      document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
-    })  
-}
-img.forEach( images => {
-  images.addEventListener("click", () => preview(images))});

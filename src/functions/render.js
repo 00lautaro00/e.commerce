@@ -21,6 +21,7 @@ export const renderCarrousel = async (data, carrouselImage) => {
     //     `
     // });
 }
+
 export const renderCartState = async () => {
     const cartRenderCount = document.getElementById("cart");
     const countCart = localStorage.getItem("cart");
@@ -41,7 +42,7 @@ export const renderProductCart = async (data, cardProduct) => {
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1151012144" || imgs.id === "MLA1297804431" || imgs.id === "MLA1181177638" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1118444638" || imgs.id === "MLA1297804431" || imgs.id === "MLA934629506" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
