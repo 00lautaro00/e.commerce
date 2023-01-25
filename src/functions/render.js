@@ -42,7 +42,7 @@ export const renderProductCart = async (data, cardProduct) => {
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1118444638" || imgs.id === "MLA1297804431" || imgs.id === "MLA934629506" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1162344418" || imgs.id === "MLA1297804431" || imgs.id === "MLA1181177638" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -103,6 +103,31 @@ export const renderGallery = async (cardGallery, dataElectronics,  dataVideoGame
 
 }
 
+export const renderProductModal = async (dataElectronics, dataVideoGames, dataCell) => {
+    const div = document.getElementById("productModal"); 
+    const itemId = localStorage.getItem("item");
+    
+    const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
+    const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
+    const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
+    const allProduct = [...imagesElectronics, ...imagesCell, ...imagesVideoGames];
+    
+    
+    const product = allProduct.find( ids => ids.id === itemId);
+    const {price, thumbnail, title } = await product;
+    div.innerHTML = 
+                    `
+                    <div class="card-product-container" >
+                    <img class="" id="imageProduct" src="${thumbnail}" alt=${"id"} >
+                    <div class="card-body">
+                     <p class="card-text"> ${title}</p>
+                     <span class="prices">$${price}</span>
+                     </div>
+                    
+                    </div> 
+                    `
+}
+
 {/* <div>
 <div class="card-body">
          <p class="card-text"> ${imgs.title.slice(0,15)}</p>
@@ -112,3 +137,21 @@ export const renderGallery = async (cardGallery, dataElectronics,  dataVideoGame
          </div>
            <button class="cart-add" id="cart-button"> <i class="fa-sharp fa-solid fa-cart-plus icon-size"></i> </button> */
         }
+
+
+        // const div = document.getElementsByClassName("card-body"); 
+        // const divProductModal = document.createElement("div");
+        // const itemsforIds = localStorage.getItem("cartItemsId");
+        
+        // const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
+        // const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
+        // const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
+        // const allProduct = [...cell, ...electronics, ...videoGames];
+        
+        // const cart = allProduct.map( product => {
+        //     let productCart = []
+        //     if(!itemsforIds){
+        //         let fullCart = itemsforIds.filter(ids => product.id === fullCart )
+        //     }
+        // })
+    
