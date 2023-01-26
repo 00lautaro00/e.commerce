@@ -114,14 +114,14 @@ export const renderProductModal = async (dataElectronics, dataVideoGames, dataCe
     
     
     const product = allProduct.find( ids => ids.id === itemId);
-    const {price, thumbnail, title } = await product;
     div.innerHTML = 
                     `
                     <div class="card-product-container" >
-                    <img class="" id="imageProduct" src="${thumbnail}" alt=${"id"} >
+                    <img class="" id="imageProduct" src="${product ? product.thumbnail 
+                        : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"}" alt=${"id"} >
                     <div class="card-body">
-                     <p class="card-text"> ${title}</p>
-                     <span class="prices">$${price}</span>
+                     <p class="card-text"> ${product ? product.title : ""}</p>
+                     <span class="prices">$${product ? product.price : ""}</span>
                      </div>
                     
                     </div> 

@@ -7,7 +7,6 @@ if(!cart) localStorage.setItem("cartItemsId",[]);
 const count = localStorage.getItem("cart");
 if(!count)  localStorage.setItem("cart", 0);
 // localStorage.clear()
-console.log("cart",cart)
 export const init = async (dataElectronics, dataVideoGames, dataCell) => {
     const carrouselInit = await renderCarrousel(dataElectronics, carrouselImage);
     const cardProductInit = await renderProductCart(dataElectronics, carrouselImage);

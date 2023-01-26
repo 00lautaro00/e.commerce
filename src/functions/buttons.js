@@ -7,13 +7,13 @@ export const cartState = async (dataElectronics, dataVideoGames, dataCell) => {
 
     let cartStateCount = localStorage.getItem("cart");
     const addCart = document.querySelectorAll(".item");
-    let cartItemsId = localStorage.getItem("cartItemsId");
     const modal = document.getElementById("modal-confirm");
     const buttonConfirm = document.getElementById("confirm");
     const buttonCancel = document.getElementById("cancel");
-    const cartArray = cartItemsId.split(",");
 
 const modalAction = async (e) => {
+    e.preventDefault()
+    e.stopImmediatePropagation();
         modal.classList.remove("hidden");
         localStorage.setItem("item", e.target.alt);
         const render = await renderProductModal(dataElectronics, dataVideoGames, dataCell)
@@ -21,43 +21,47 @@ const modalAction = async (e) => {
 
 
 
-const buttonModalConfirm = async ( ) => {
-
+const buttonModalConfirm = async (e ) => {
+    e.preventDefault()
+    e.stopImmediatePropagation();
+    let cartItemsId = localStorage.getItem("cartItemsId");
+    const cartArray = cartItemsId.split(",");
     let item = localStorage.getItem("item");
-    const value = cartArray.some(id => id === item);
+    if(item !== "undefined"){
 
-    console.log("item", item);
-    console.log("value", value);
-
-
-        if(!cartItemsId) {
-            modal.classList.add("hidden")
-            cartItemsId = [cartItemsId, item];
-            cartStateCount = parseInt(cartStateCount) + 1
-            localStorage.setItem("cart", cartStateCount);
-            localStorage.setItem("cartItemsId",cartItemsId)
-            init();
-
-        }else{
+           const value = cartArray.some(id => id === item);
            console.log("value",value)
-                if(!value){
-                    modal.classList.add("hidden")
-                    cartItemsId = [cartItemsId, item];
-                    cartStateCount = parseInt(cartStateCount) + 1;
-                    localStorage.setItem("cartItemsId",cartItemsId);
-                    localStorage.setItem("cart", cartStateCount);
-                    init()
-                }else{
-                    modal.classList.add("hidden")
-                    notifierRender("Product exist in the cart");
-                    const notifier = document.getElementById("notifier");
-                    notifier.classList.remove("hidden");
-                    setTimeout(() => {
-                        notifier.classList.add("hidden");
-                    }, 1000)
-                }
-        }
-        
+           if(!cartItemsId) {
+               modal.classList.add("hidden")
+               cartItemsId = [cartItemsId, item];
+               cartStateCount = parseInt(cartStateCount) + 1
+               localStorage.setItem("cart", cartStateCount);
+               localStorage.setItem("cartItemsId",cartItemsId)
+               init();
+   
+           }else{
+                   if(!value){
+                       modal.classList.add("hidden")
+                       cartItemsId = [cartItemsId, item];
+                       cartStateCount = parseInt(cartStateCount) + 1;
+                       localStorage.setItem("cartItemsId",cartItemsId);
+                       localStorage.setItem("cart", cartStateCount);
+                       init()
+                   }else{
+                       modal.classList.add("hidden")
+                       notifierRender("Product exist in the cart");
+                       const notifier = document.getElementById("notifier");
+                       notifier.classList.remove("hidden");
+                       setTimeout(() => {
+                           notifier.classList.add("hidden");
+                       }, 1000)
+                   }
+           }
+    }else{
+        alert("product not found");
+        localStorage.setItem("item","")
+    }
+     
 }
 const buttonModalCancel = async (  ) =>  modal.classList.add("hidden");
 
@@ -65,7 +69,7 @@ const buttonModalCancel = async (  ) =>  modal.classList.add("hidden");
 
 addCart.forEach((btn) => btn.addEventListener("click", modalAction));
 buttonCancel.addEventListener("click", buttonModalCancel);
- buttonConfirm.addEventListener("click",  buttonModalConfirm);
+buttonConfirm.addEventListener("click",  buttonModalConfirm);
 
 
 }
