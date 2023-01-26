@@ -11,6 +11,11 @@ main{
     padding: 0 10rem;
   }
 }
+/* UTILITIES */
+.display-flex{
+  display: flex;
+  justify-content: space-around;
+}
 /*BACKGROUND */
 .bg-white{
   background-color: white;
@@ -170,7 +175,7 @@ main{
 .title{
   margin: 4rem 0;
 }
-.container-slider{
+.-slider{
   margin: 4rem 6rem;
   border: 1px solid #e3f2fd;
   padding: 1rem 0;
@@ -299,19 +304,11 @@ main{
     top: 40%;
     right: 20%;
     left: 20%;
-    max-width: 600px;
-    max-height:600px;
+    max-width: 800px;
+    max-height:800px;
     border-radius: .5rem;
     padding: 1rem;
     z-index: 4;
-
-  }
-  .shadow-blue{
-    box-shadow: 1px 1px 10px #0093fb;
-
-  }
-  .shadow-tomato{
-    box-shadow: 1px 1px 10px tomato;
   }
   .modal-background {
 		position: fixed;
@@ -322,6 +319,32 @@ main{
 		background: rgba(0,0,0,0.3);
     z-index: 1;
 	}
+  .modal-animation-fall{
+    animation: down .5s forwards
+  }
+  @keyframes down {
+    0%{
+      top: -100%;
+    }
+    100%{
+      top: 10%;
+    }
+    
+  }
+  .modal-animation-scale{
+    animation: scale .5s forwards;
+  }
+
+
+@keyframes scale {
+  0%{
+    transform: scale(.5,.5);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
+  
   @media (min-width: 600px) {
     .modal-confirm{
       top: 15%;
@@ -332,7 +355,13 @@ main{
     }
   }
   
+  .shadow-blue{
+    box-shadow: 1px 1px 10px #0093fb;
 
+  }
+  .shadow-tomato{
+    box-shadow: 1px 1px 10px tomato;
+  }
   /*GALLERY*/
 
   .show-card{

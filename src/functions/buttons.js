@@ -28,9 +28,7 @@ const buttonModalConfirm = async (e ) => {
     const cartArray = cartItemsId.split(",");
     let item = localStorage.getItem("item");
     if(item !== "undefined"){
-
            const value = cartArray.some(id => id === item);
-           console.log("value",value)
            if(!cartItemsId) {
                modal.classList.add("hidden")
                cartItemsId = [cartItemsId, item];
@@ -54,12 +52,15 @@ const buttonModalConfirm = async (e ) => {
                        notifier.classList.remove("hidden");
                        setTimeout(() => {
                            notifier.classList.add("hidden");
-                       }, 1000)
+                       }, 1500)
                    }
            }
     }else{
-        alert("product not found");
-        localStorage.setItem("item","")
+        modal.classList.add("hidden");
+        notifierRender("Product not found");
+        const notifier = document.getElementById("notifier");
+        notifier.classList.remove("hidden");
+        setTimeout(() => { notifier.classList.add("hidden")}, 1500)
     }
      
 }

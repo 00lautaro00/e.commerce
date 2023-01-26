@@ -42,7 +42,7 @@ export const renderProductCart = async (data, cardProduct) => {
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1162344418" || imgs.id === "MLA1297804431" || imgs.id === "MLA1181177638" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1162344418" || imgs.id === "MLA1297804431" || imgs.id === "MLA1247655377" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -120,7 +120,7 @@ export const renderProductModal = async (dataElectronics, dataVideoGames, dataCe
                     <img class="" id="imageProduct" src="${product ? product.thumbnail 
                         : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"}" alt=${"id"} >
                     <div class="card-body">
-                     <p class="card-text"> ${product ? product.title : ""}</p>
+                     <p class="card-text"> ${product ? product.title.slice(0,40) : ""}</p>
                      <span class="prices">$${product ? product.price : ""}</span>
                      </div>
                     
