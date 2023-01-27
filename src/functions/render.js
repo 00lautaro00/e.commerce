@@ -37,12 +37,11 @@ export const renderProductCart = async (data, cardProduct) => {
     const images = await data ?  data.results.slice(0,10) : [];
     // console.log(data)
      images.map(imgs => {
-        const detail = imgs.title + imgs.price
         const a = document.createElement("a")
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1162344418" || imgs.id === "MLA1297804431" || imgs.id === "MLA1247655377" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1162344418" || imgs.id === "MLA1297804431" || imgs.id === "MLA1181177638" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -128,6 +127,27 @@ export const renderProductModal = async (dataElectronics, dataVideoGames, dataCe
                     `
 }
 
+
+export const renderCartUser = async (dataElectronics, dataCell, dataVideoGames ) => {
+
+            // const div = document.getElementsByClassName("card-body"); 
+        const itemsforIds = localStorage.getItem("cartItemsId");
+        const itemsforIdsArray = itemsforIds.split(",")
+        
+        const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
+        const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
+        const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
+        const allProduct = [...imagesCell, ...imagesElectronics, ...imagesVideoGames];
+        
+        const cart = itemsforIdsArray.map( product => {
+            if(!!itemsforIdsArray.length){
+                const fullCart = allProduct.filter( ids => ids.id === product );
+                return fullCart
+            }
+        })
+    console.log(cart)
+}
+
 {/* <div>
 <div class="card-body">
          <p class="card-text"> ${imgs.title.slice(0,15)}</p>
@@ -139,19 +159,3 @@ export const renderProductModal = async (dataElectronics, dataVideoGames, dataCe
         }
 
 
-        // const div = document.getElementsByClassName("card-body"); 
-        // const divProductModal = document.createElement("div");
-        // const itemsforIds = localStorage.getItem("cartItemsId");
-        
-        // const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
-        // const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
-        // const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
-        // const allProduct = [...cell, ...electronics, ...videoGames];
-        
-        // const cart = allProduct.map( product => {
-        //     let productCart = []
-        //     if(!itemsforIds){
-        //         let fullCart = itemsforIds.filter(ids => product.id === fullCart )
-        //     }
-        // })
-    

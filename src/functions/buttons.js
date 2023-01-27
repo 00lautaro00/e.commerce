@@ -33,8 +33,9 @@ const buttonModalConfirm = async (e ) => {
                modal.classList.add("hidden")
                cartItemsId = [cartItemsId, item];
                cartStateCount = parseInt(cartStateCount) + 1
-               localStorage.setItem("cart", cartStateCount);
-               localStorage.setItem("cartItemsId",cartItemsId)
+               localStorage.setItem("cart", JSON.stringify(cartStateCount));
+               localStorage.setItem("cartItemsId",JSON.stringify(cartItemsId));
+
                init();
    
            }else{
@@ -42,8 +43,8 @@ const buttonModalConfirm = async (e ) => {
                        modal.classList.add("hidden")
                        cartItemsId = [cartItemsId, item];
                        cartStateCount = parseInt(cartStateCount) + 1;
-                       localStorage.setItem("cartItemsId",cartItemsId);
-                       localStorage.setItem("cart", cartStateCount);
+                       localStorage.setItem("cartItemsId",JSON.stringify(cartItemsId));
+                       localStorage.setItem("cart", JSON.stringify(cartStateCount));
                        init()
                    }else{
                        modal.classList.add("hidden")
