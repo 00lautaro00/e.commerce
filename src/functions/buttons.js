@@ -25,25 +25,27 @@ const buttonModalConfirm = async (e ) => {
     e.preventDefault()
     e.stopImmediatePropagation();
     let cartItemsId = localStorage.getItem("cartItemsId");
-    const cartArray = cartItemsId.split(",");
     let item = localStorage.getItem("item");
+
     if(item !== "undefined"){
-           const value = cartArray.some(id => id === item);
            if(!cartItemsId) {
                modal.classList.add("hidden")
-               cartItemsId = [cartItemsId, item];
                cartStateCount = parseInt(cartStateCount) + 1
                localStorage.setItem("cart", JSON.stringify(cartStateCount));
-               localStorage.setItem("cartItemsId",JSON.stringify(cartItemsId));
+               localStorage.setItem("cartItemsId",JSON.stringify(item));
 
                init();
    
            }else{
+            const cartArray = cartItemsId.split(",");
+            const value = cartArray.some(id => id === item);
+
                    if(!value){
                        modal.classList.add("hidden")
-                       cartItemsId = [cartItemsId, item];
+                       let cart = [...cartArray, item];
+                       console.log(cart)
                        cartStateCount = parseInt(cartStateCount) + 1;
-                       localStorage.setItem("cartItemsId",JSON.stringify(cartItemsId));
+                       localStorage.setItem("cartItemsId",JSON.stringify(cart));
                        localStorage.setItem("cart", JSON.stringify(cartStateCount));
                        init()
                    }else{

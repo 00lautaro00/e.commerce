@@ -41,7 +41,7 @@ export const renderProductCart = async (data, cardProduct) => {
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1162344418" || imgs.id === "MLA1297804431" || imgs.id === "MLA1181177638" ? divItem.classList.add("active") : ''
+        imgs.id === "MLA1310545723" || imgs.id === "MLA928038046" || imgs.id === "MLA1234364405" ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -131,21 +131,19 @@ export const renderProductModal = async (dataElectronics, dataVideoGames, dataCe
 export const renderCartUser = async (dataElectronics, dataCell, dataVideoGames ) => {
 
             // const div = document.getElementsByClassName("card-body"); 
-        const itemsforIds = localStorage.getItem("cartItemsId");
-        const itemsforIdsArray = itemsforIds.split(",")
+        // const itemsforIds = localStorage.getItem("cartItemsId");
+        // const itemsforIdsArray = itemsforIds.split(",")
         
-        const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
-        const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
-        const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
-        const allProduct = [...imagesCell, ...imagesElectronics, ...imagesVideoGames];
-        
-        const cart = itemsforIdsArray.map( product => {
-            if(!!itemsforIdsArray.length){
-                const fullCart = allProduct.filter( ids => ids.id === product );
-                return fullCart
-            }
-        })
-    console.log(cart)
+        // const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
+        // const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
+        // const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
+        // const allProduct = [...imagesCell, ...imagesElectronics, ...imagesVideoGames];
+        // const cart = itemsforIdsArray.map( product => {
+        //     if(!!itemsforIdsArray.length){
+        //         const fullCart = allProduct.filter( ids => ids.id === product );
+        //         return fullCart
+        //     }
+        // })
 }
 
 {/* <div>
