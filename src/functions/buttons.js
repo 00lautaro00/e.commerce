@@ -32,7 +32,7 @@ const buttonModalConfirm = async (e ) => {
                modal.classList.add("hidden")
                cartStateCount = parseInt(cartStateCount) + 1
                localStorage.setItem("cart", JSON.stringify(cartStateCount));
-               localStorage.setItem("cartItemsId",JSON.stringify(item));
+               localStorage.setItem("cartItemsId", item);
 
                init();
    
@@ -42,10 +42,9 @@ const buttonModalConfirm = async (e ) => {
 
                    if(!value){
                        modal.classList.add("hidden")
-                       let cart = [...cartArray, item];
-                       console.log(cart)
+                       cartItemsId = [cartItemsId, item];
                        cartStateCount = parseInt(cartStateCount) + 1;
-                       localStorage.setItem("cartItemsId",JSON.stringify(cart));
+                       localStorage.setItem("cartItemsId",cartItemsId);
                        localStorage.setItem("cart", JSON.stringify(cartStateCount));
                        init()
                    }else{
@@ -67,9 +66,9 @@ const buttonModalConfirm = async (e ) => {
     }
      
 }
+
+
 const buttonModalCancel = async (  ) =>  modal.classList.add("hidden");
-
-
 
 addCart.forEach((btn) => btn.addEventListener("click", modalAction));
 buttonCancel.addEventListener("click", buttonModalCancel);
@@ -77,3 +76,26 @@ buttonConfirm.addEventListener("click",  buttonModalConfirm);
 
 
 }
+
+
+
+export const tableModal = async () => {
+    const user = document.getElementById("cart-user");
+    const buttonCancel = document.getElementById("cancel");
+    const modal = document.getElementById("table-modal")
+
+
+    user.addEventListener("click" , (e) =>{
+        e.preventDefault()
+        e.stopImmediatePropagation();
+        if(e) {
+            const table = document.getElementById("table-modal");
+            table.classList.remove("hidden"); 
+            buttonCancel.addEventListener("click", buttonModalCancel);
+
+        }
+    })
+const buttonModalCancel = async (  ) =>  modal.classList.add("hidden");
+
+}
+ 

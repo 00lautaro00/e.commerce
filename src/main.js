@@ -1,4 +1,4 @@
-import { cartState } from "./functions/buttons.js";
+import { cartState, tableModal } from "./functions/buttons.js";
 import { renderCarrousel, renderCartState, renderCartUser, renderGallery, renderProductCart} from "./functions/render.js"
 import {  carrouselImage , cardProductVideoGames, cardProductCell, cardGallery} from "./utils/dom.js"
 
@@ -16,6 +16,7 @@ export const init = async (dataElectronics, dataVideoGames, dataCell) => {
     const renderCart = await renderCartState();
     const renderGalleryInit = await renderGallery(cardGallery, dataElectronics, dataVideoGames, dataCell);
     const renderCartUserInit = await renderCartUser(dataElectronics, dataCell, dataVideoGames);
+    const renderTableModal = await tableModal();
 
 }
 

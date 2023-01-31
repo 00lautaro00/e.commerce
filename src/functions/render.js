@@ -131,19 +131,44 @@ export const renderProductModal = async (dataElectronics, dataVideoGames, dataCe
 export const renderCartUser = async (dataElectronics, dataCell, dataVideoGames ) => {
 
             // const div = document.getElementsByClassName("card-body"); 
-        // const itemsforIds = localStorage.getItem("cartItemsId");
-        // const itemsforIdsArray = itemsforIds.split(",")
-        
-        // const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
-        // const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
-        // const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
-        // const allProduct = [...imagesCell, ...imagesElectronics, ...imagesVideoGames];
-        // const cart = itemsforIdsArray.map( product => {
-        //     if(!!itemsforIdsArray.length){
-        //         const fullCart = allProduct.filter( ids => ids.id === product );
-        //         return fullCart
-        //     }
-        // })
+        let fullCart
+        const itemsforIds = localStorage.getItem("cartItemsId");
+        const itemsforIdsArray = itemsforIds ? itemsforIds.split(",") : []
+        const table = document.getElementById("table-cart")
+        const imagesElectronics = await dataElectronics ?  dataElectronics?.results.slice(0,20) : [];
+        const imagesCell = await dataCell ?  dataCell?.results.slice(0,20) : [];
+        const imagesVideoGames = await dataVideoGames ?  dataVideoGames?.results.slice(0,20) : [];
+        const allProduct = [...imagesCell, ...imagesElectronics, ...imagesVideoGames];
+        console.log(itemsforIdsArray)
+        itemsforIdsArray.map( product => {
+            if(!!itemsforIdsArray.length){
+                 fullCart = allProduct.filter( ids => ids.id === product );
+            }
+            return fullCart
+        })
+        fullCart.map(imgs => {
+           if(table){
+            table.innerHTML=
+            `
+            <thead>
+<tr>
+  <th scope="col">#</th>
+  <th scope="col">Name</th>
+  <th scope="col">Price</th>
+  <th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <th scope="row">1</th>
+  <td>${imgs.title}</td>
+  <td>${imgs.price}</td>
+  <td><button>delete</button></td>
+</tr>
+</tbody>
+            `
+           }
+        })
 }
 
 {/* <div>

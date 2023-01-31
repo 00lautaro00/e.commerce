@@ -299,7 +299,7 @@ main{
   }
 
   /* MODAL */
-  .modal-confirm{
+  .modal-confirm, .cart-table-user{
     position: fixed;
     top: 40%;
     right: 20%;
@@ -310,6 +310,7 @@ main{
     padding: 1rem;
     z-index: 4;
   }
+
   .modal-background {
 		position: fixed;
 		top: 0;

@@ -21,7 +21,7 @@
     
     <title>e-Commerce</title>
 </head>
-<a>
+<a id="cart-user">
   <section class="card-user">
     <div class="logo-user">
       <img src="./src/assets/svg/catUser.svg">
@@ -79,7 +79,28 @@
           </div>
         </div>
       </nav>
+<!-- TABLE CART  -->
 
+<div class="hidden shadow-blue"  id="table-modal">
+  <div class="modal-background"></div> 
+ <div class="cart-table-user">
+  <div class="card shadow-blue modal-animation-scale">
+      <div class="card-header" style="text-align: center;">
+          <h3>
+              Cart
+          </h3>
+      </div>
+      <div class="card-body " id="productModal">
+          <table class="table" id="table-cart">
+              
+            </table>
+      </div>
+        <button class="btn btn-primary" id="pay">Pay</button>
+        <button class="btn btn-primary" id="cancel">Cancelar</button>
+  </div>
+
+</div> 
+</div>
        <!-- CARRUSEL  -->
       <!-- <section class="card-carousel-banner">
         <div id="carouselExampleRide" class="carousel" data-bs-ride="carousel">
@@ -93,6 +114,7 @@
           </div>
         </div>
        </section> -->
+
  <!-- Button trigger modal -->
  <div class="hidden shadow-blue" id="modal-confirm">
   <div class="modal-background"></div> 
@@ -110,6 +132,10 @@
 </div>
 
 </div>
+
+</div>
+
+
        <main>
         <section class="container-slider">
           <div class="container">

@@ -23,7 +23,52 @@
 </head>
 
 <body>
-   
+  
+   <div class="hidden shadow-blue" >
+    <div class="modal-background"></div> 
+  <div class="modal-confirm ">
+    <div class="card shadow-blue modal-animation-scale">
+        <div class="card-header" style="text-align: center;">
+            <h3>
+                Cart
+            </h3>
+        </div>
+        <div class="card-body " id="productModal">
+            <table class="table" id="table-cart">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+          <button class="btn btn-primary" id="confirm">Confirmar</button>
+          <button class="btn btn-primary" id="cancel">Cancelar</button>
+    </div>
+  </div>
+  
   
 </body>
 </html>
