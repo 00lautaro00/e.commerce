@@ -16,6 +16,14 @@ main{
   display: flex;
   justify-content: space-around;
 }
+a{
+  cursor: pointer;
+}
+button{
+  margin: .2rem 0;
+  z-index: 1;
+}
+
 /*BACKGROUND */
 .bg-white{
   background-color: white;
@@ -59,7 +67,7 @@ main{
 }
 .card-user{
     position: fixed;
-    top: 15%;
+    bottom: 5%;
     left: 1%;
     width: 140px;
     height: 140px;
@@ -71,6 +79,17 @@ main{
     align-items: center;
     z-index: 1;
     animation: stateChange 1s forwards;
+}
+@media (min-width:600px) {
+  .card-user{
+    top: 15%;
+    left: 1%;
+   
+}
+}
+.card-user:hover{
+  box-shadow: 1px 1px 30px #0093fb;
+  transition: .5s;
 }
 .cart-state{
   position: absolute;
@@ -103,8 +122,9 @@ main{
 }
 
 /** carousel **/
-.card-carousel-banner {
-}
+/* .card-carousel-banner {
+  margin-bottom: 2rem;
+} */
 .w-product{
     width: 12rem;
     margin-right: 1rem;
@@ -132,6 +152,11 @@ main{
 .cart-add{
   background-color: transparent;
   border: none;
+  margin-top: 1rem;
+}
+#cart-gallery:hover{
+  color: #0093fb;
+  transform: scale(1.2,1.2);
 }
 .product:hover{
   /* transform: scale(1.5,1.5);
@@ -301,16 +326,20 @@ main{
   /* MODAL */
   .modal-confirm, .cart-table-user{
     position: fixed;
-    top: 40%;
+    top: 10%;
     right: 20%;
     left: 20%;
-    max-width: 800px;
-    max-height:800px;
+    max-width: 1000px;
+    max-height:1000px;
     border-radius: .5rem;
     padding: 1rem;
     z-index: 4;
   }
-
+  .cart-table-user{
+    top: 20%;
+    right: 25%;
+    left: 25%;
+  }
   .modal-background {
 		position: fixed;
 		top: 0;
@@ -534,7 +563,7 @@ main{
 }
 @media (max-width: 800px) {
   .gallery .image-gallery{
-    width: calc(100% / 2);
+    width: calc(100% / 1);
   }
 }
 @media (max-width: 700px) {
