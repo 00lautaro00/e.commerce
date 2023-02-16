@@ -122,7 +122,11 @@ export const deleteButton = async () => {
             btn.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                console.log(e)
+                const cart = sessionStorage.getItem("cartItemsId")
+                const cartItems = cart ? cart.split(",") : [];
+                const newCart = cartItems.filter(id => id !== e.target.dataset.id);
+                sessionStorage.removeItem("cartItemsId")
+                sessionStorage.setItem("cartItemsId", newCart)
             })
         })
     },2000)

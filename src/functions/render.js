@@ -15,12 +15,12 @@ export const renderProductCart = async (data, cardProduct) => {
 
     const images = await data ?  data.results.slice(0,10) : [];
     // console.log(data)
-     images.map(imgs => {
+     images.map((imgs,index) => {
         const a = document.createElement("a")
         const divItem = document.createElement("div");
         const divCol = document.createElement("div");
         divItem.classList.add("item");
-        imgs.id === "MLA1314590445" || imgs.id === "MLA1329010033" || imgs.id === "MLA1142471087" ? divItem.classList.add("active") : ''
+       index === 0 ? divItem.classList.add("active") : ''
         divCol.classList.add("col-xs-12");
         divCol.classList.add("col-sm-6");
         divCol.classList.add("col-md-2");
@@ -147,7 +147,7 @@ export const renderCartUser = async (dataElectronics, dataCell, dataVideoGames )
                 <td>${imgs.title}</td>
                 <td>$${imgs.price}</td>
                 <td>
-                <button class="btn btn-danger" id="delete">
+                <button class="btn btn-danger" id="delete" data-id="${imgs.id}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                     </svg>
