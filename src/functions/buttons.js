@@ -117,18 +117,24 @@ const buttonModalCancel = async (  ) =>  modal.classList.add("hidden");
 
 export const deleteButton = async () => {
     setTimeout(() => {
+        let cartStateCount = sessionStorage.getItem("cart");
         const deleteBtn  = document.querySelectorAll("#delete");
         deleteBtn.forEach((btn) => {
             btn.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopImmediatePropagation();
+                const getButton = document.getElementById("delete");
+                const idi = getButton.getAttribute("data-id");
+                cartStateCount = parseInt(cartStateCount) - 1
+               sessionStorage.setItem("cart", JSON.stringify(cartStateCount));
                 const cart = sessionStorage.getItem("cartItemsId")
                 const cartItems = cart ? cart.split(",") : [];
-                const newCart = cartItems.filter(id => id !== e.target.dataset.id);
-                sessionStorage.removeItem("cartItemsId")
-                sessionStorage.setItem("cartItemsId", newCart)
+                const newCart = cartItems.filter(id => id !== idi);
+                sessionStorage.setItem("cartItemsId", newCart);
+                init()
+
             })
         })
-    },2000)
+    },0)
 }
 
