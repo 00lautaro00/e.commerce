@@ -108,7 +108,6 @@ export const renderProductModal = async (dataElectronics, dataVideoGames, dataCe
 
 export const renderCartUser = async (dataElectronics, dataCell, dataVideoGames ) => {
 
-            // const div = document.getElementsByClassName("card-body"); 
         let fullCart = []
         const itemsforIds = sessionStorage.getItem("cartItemsId");
         const itemsforIdsArray = itemsforIds ? itemsforIds.split(",") : []
@@ -131,7 +130,6 @@ export const renderCartUser = async (dataElectronics, dataCell, dataVideoGames )
                 return fullCart = []
             }
         })
-
         fullCart.map((imgs, index) => {
             const tbody = document.createElement("tbody");
             const tr = document.createElement("tr");

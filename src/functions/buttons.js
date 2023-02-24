@@ -115,7 +115,7 @@ const buttonModalCancel = async (  ) =>  modal.classList.add("hidden");
 
 }
 
-export const deleteButton = async () => {
+export const deleteButton = async (  ) => {
     setTimeout(() => {
         let cartStateCount = sessionStorage.getItem("cart");
         const deleteBtn  = document.querySelectorAll("#delete");
@@ -131,10 +131,7 @@ export const deleteButton = async () => {
                 const cartItems = cart ? cart.split(",") : [];
                 const newCart = cartItems.filter(id => id !== idi);
                 sessionStorage.setItem("cartItemsId", newCart);
-                init()
-
             })
         })
     },0)
 }
-
