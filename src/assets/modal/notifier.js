@@ -7,8 +7,8 @@ export const notifierRender =  async (notification) => {
                             <div class="card-header">
                                     <h3>Notification</h3>
                             </div>
-                            <div class="card-body" id="productModal">
-                                <span> <h4>${notification}</h4></span>
+                            <div class="card-body notify" id="productModal">
+                                <span> ${notification}</span>
                             </div>
                         </div>
     `

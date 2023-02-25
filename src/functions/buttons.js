@@ -33,7 +33,7 @@ const buttonModalConfirm = async (e ) => {
                cartStateCount = parseInt(cartStateCount) + 1
                sessionStorage.setItem("cart", JSON.stringify(cartStateCount));
                sessionStorage.setItem("cartItemsId", item);
-
+               location.reload()
                init();
    
            }else{
@@ -46,15 +46,16 @@ const buttonModalConfirm = async (e ) => {
                        cartStateCount = parseInt(cartStateCount) + 1;
                        sessionStorage.setItem("cartItemsId",cartItemsId);
                        sessionStorage.setItem("cart", JSON.stringify(cartStateCount));
+                       location.reload()
                        init()
                    }else{
                        modal.classList.add("hidden")
-                       notifierRender("Product exist in the cart");
+                       notifierRender("Existing product in cart");
                        const notifier = document.getElementById("notifier");
                        notifier.classList.remove("hidden");
                        setTimeout(() => {
                            notifier.classList.add("hidden");
-                       }, 1500)
+                       }, 2000)
                    }
            }
     }else{
@@ -117,20 +118,21 @@ const buttonModalCancel = async (  ) =>  modal.classList.add("hidden");
 
 export const deleteButton = async (  ) => {
     setTimeout(() => {
-        let cartStateCount = sessionStorage.getItem("cart");
         const deleteBtn  = document.querySelectorAll("#delete");
         deleteBtn.forEach((btn) => {
             btn.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopImmediatePropagation();
+                let cartStateCount = sessionStorage.getItem("cart");
+                const cart = sessionStorage.getItem("cartItemsId");
                 const getButton = document.getElementById("delete");
                 const idi = getButton.getAttribute("data-id");
+                const cartItemsId = cart ? cart.split(",") : [];
+                const newCart = cartItemsId.filter(id => id !== idi);
                 cartStateCount = parseInt(cartStateCount) - 1
                sessionStorage.setItem("cart", JSON.stringify(cartStateCount));
-                const cart = sessionStorage.getItem("cartItemsId")
-                const cartItems = cart ? cart.split(",") : [];
-                const newCart = cartItems.filter(id => id !== idi);
                 sessionStorage.setItem("cartItemsId", newCart);
+                location.reload()
             })
         })
     },0)

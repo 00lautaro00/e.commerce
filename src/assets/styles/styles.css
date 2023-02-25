@@ -12,6 +12,14 @@ main{
   }
 }
 /* UTILITIES */
+.notify{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
 .margin{
   margin: 6rem 0;
 }
