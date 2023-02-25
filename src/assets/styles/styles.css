@@ -349,6 +349,7 @@ button{
   .modal-confirm, .cart-table-user{
     position: fixed;
     top: 10%;
+    width: 100%;
     max-width: 600px;
     max-height:100%;
     z-index: 2;
@@ -468,24 +469,31 @@ button{
   align-items: center;
   flex-wrap: wrap;
   margin-top: 3rem;
-  padding: 0 2.5rem;
 
 }
 .image-gallery{
   display: flex;
   flex-direction: row;
-  max-width: 180px;
+  max-width: 150px;
   max-height: 170px;
   margin: .8rem;
-  padding:2rem 1rem;
+  padding:1rem .5rem;
   border: 1px solid #e3f2fd;
   box-shadow:2px 2px 8px #0093fb;
 }
+
+
 @media (min-width:600px) {
   .image-gallery{
     max-width: 200px;
     max-height: 220px;
+    padding:2rem 1rem;
   }
+  .gallery{
+  padding: 0 2.5rem;
+
+  }
+
 }
 .gallery .image-gallery span{
   display: flex;
